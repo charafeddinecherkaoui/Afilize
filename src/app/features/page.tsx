@@ -104,7 +104,7 @@ export default function FeaturesPage() {
           title="Seven layers, one platform"
           sub="Each layer feeds the next — tracking data drives the AI, the AI drives the rules, the rules feed your invoices."
         />
-        <div className="mt-11 grid items-stretch gap-4 min-[821px]:grid-cols-2">
+        <div className="mt-11 grid items-stretch gap-4 min-[821px]:auto-rows-fr min-[821px]:grid-cols-2">
           <Pillar num="01" title="Tracking & Attribution">
             <p className="text-text-muted">
               Capture and attribute every click and conversion in real time,
