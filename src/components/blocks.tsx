@@ -49,7 +49,10 @@ export function SectionHead({
 }) {
   return (
     <div className="mx-auto max-w-[720px] text-center">
-      <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
+      <p
+        className="font-mono text-xs uppercase tracking-[0.18em] text-accent-2"
+        style={{ color: "var(--accent-2)" }}
+      >
         {label}
       </p>
       <h2 className="mt-3 text-[clamp(26px,4vw,38px)] font-bold leading-tight tracking-[-0.02em]">

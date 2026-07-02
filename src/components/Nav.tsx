@@ -22,7 +22,12 @@ export default function Nav() {
           className="flex items-center gap-2.5"
           aria-label="Afilize home"
         >
-          <span className="relative h-[26px] w-[26px] rounded-lg flow-bg">
+          <span
+            className="relative h-[26px] w-[26px] rounded-lg flow-bg"
+            style={{
+              background: "linear-gradient(100deg, #7C82FF 0%, #27D3EE 100%)",
+            }}
+          >
             <span className="absolute left-1/2 top-[5px] h-[3px] w-2.5 -translate-x-1/2 rounded-full bg-ink" />
           </span>
           <span className="font-display text-xl font-bold tracking-tight">
