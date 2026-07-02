@@ -40,17 +40,17 @@ function Pillar({
 }) {
   return (
     <article
-      className={`relative flex flex-col overflow-hidden rounded-[18px] border border-line bg-surface p-[30px] ${
+      className={`relative flex h-full flex-col overflow-hidden rounded-[18px] border border-line bg-surface p-[30px] ${
         full ? "min-[821px]:col-span-2" : ""
       }`}
     >
       <span className="absolute inset-x-0 top-0 h-[2px] flow-bg" aria-hidden="true" />
       <p className="font-mono text-xs text-text-dim">{num}</p>
-      <h3 className="mt-2 flex items-center gap-2.5 font-display text-[22px] font-semibold tracking-[-0.01em]">
+      <h3 className="mt-2 flex flex-wrap items-center gap-2.5 font-display text-[22px] font-semibold tracking-[-0.01em]">
         {title}
         {badge && <AiBadge />}
       </h3>
-      <div className="mt-3 flex flex-1 flex-col justify-between gap-4">
+      <div className="mt-3 flex grow flex-col justify-between gap-4">
         {children}
       </div>
     </article>
@@ -104,7 +104,7 @@ export default function FeaturesPage() {
           title="Seven layers, one platform"
           sub="Each layer feeds the next — tracking data drives the AI, the AI drives the rules, the rules feed your invoices."
         />
-        <div className="mt-11 grid gap-4 min-[821px]:grid-cols-2">
+        <div className="mt-11 grid items-stretch gap-4 min-[821px]:grid-cols-2">
           <Pillar num="01" title="Tracking & Attribution">
             <p className="text-text-muted">
               Capture and attribute every click and conversion in real time,
