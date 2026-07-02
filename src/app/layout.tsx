@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -38,7 +40,11 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <div className="field" aria-hidden="true" />
         <div className="grid-lines" aria-hidden="true" />
-        <div className="stage flex flex-col min-h-screen">{children}</div>
+        <div className="stage flex flex-col min-h-screen">
+          <Nav />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
