@@ -40,7 +40,7 @@ function Pillar({
 }) {
   return (
     <article
-      className={`relative overflow-hidden rounded-[18px] border border-line bg-surface p-[30px] ${
+      className={`relative flex flex-col overflow-hidden rounded-[18px] border border-line bg-surface p-[30px] ${
         full ? "min-[821px]:col-span-2" : ""
       }`}
     >
@@ -50,7 +50,9 @@ function Pillar({
         {title}
         {badge && <AiBadge />}
       </h3>
-      <div className="mt-3 space-y-4">{children}</div>
+      <div className="mt-3 flex flex-1 flex-col justify-between gap-4">
+        {children}
+      </div>
     </article>
   );
 }
