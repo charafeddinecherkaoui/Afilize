@@ -199,7 +199,13 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
 
   if (plan.popular) {
     return (
-      <div className="relative rounded-[18px] p-px flow-bg shadow-[0_0_40px_rgba(124,130,255,0.25)]">
+      <div
+        className="relative rounded-[18px] p-px flow-bg"
+        style={{
+          background: "var(--flow)",
+          boxShadow: "0 0 40px rgba(124, 130, 255, 0.25)",
+        }}
+      >
         <span className="absolute -top-3 left-1/2 z-10 -translate-x-1/2 rounded-full flow-bg px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-ink">
           Most popular
         </span>
