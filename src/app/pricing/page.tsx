@@ -221,16 +221,10 @@ export default function PricingPage() {
                   <th
                     key={plan.name}
                     className={`sticky top-16 z-10 p-4 text-center ${
-                      plan.highlight ? "bg-surface-2 text-accent-2" : "bg-surface-2"
-                    }`}
-                    style={
                       plan.highlight
-                        ? {
-                            backgroundImage:
-                              "linear-gradient(rgba(124,130,255,0.05), rgba(124,130,255,0.05))",
-                          }
-                        : undefined
-                    }
+                        ? "bg-[#1c2440] text-accent-2"
+                        : "bg-surface-2"
+                    }`}
                   >
                     <span className="font-display text-[15px] font-semibold">
                       {plan.name}
@@ -250,17 +244,12 @@ export default function PricingPage() {
               {table.map((group) => (
                 <Fragment key={group.group}>
                   <tr>
-                    <td className="border-t border-line-soft px-4 pb-2 pt-5 font-mono text-xs uppercase tracking-[0.18em] text-accent">
+                    <td
+                      colSpan={5}
+                      className="border-t border-line-soft px-4 pb-2 pt-5 font-mono text-xs uppercase tracking-[0.18em] text-accent"
+                    >
                       {group.group}
                     </td>
-                    {[0, 1, 2, 3].map((i) => (
-                      <td
-                        key={i}
-                        className={`border-t border-line-soft ${
-                          i === 1 ? "bg-[rgba(124,130,255,0.05)]" : ""
-                        }`}
-                      />
-                    ))}
                   </tr>
                   {group.rows.map((row) => (
                     <tr key={row.label} className="border-t border-line-soft">
