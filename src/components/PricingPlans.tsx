@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { AiStarIcon, CheckIcon } from "@/components/blocks";
 
@@ -184,8 +185,8 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
         ))}
       </ul>
 
-      <a
-        href="#"
+      <Link
+        href="/request-demo"
         className={`mt-6 block rounded-xl py-2.5 text-center text-sm font-semibold ${
           plan.popular
             ? "flow-bg text-ink transition-shadow hover:shadow-[0_0_24px_rgba(124,130,255,0.45)]"
@@ -195,7 +196,7 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
         }`}
       >
         {plan.cta}
-      </a>
+      </Link>
     </div>
   );
 
