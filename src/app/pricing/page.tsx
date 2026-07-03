@@ -243,6 +243,14 @@ export default function PricingPage() {
                           ? "bg-surface-2 text-warn"
                           : "bg-surface-2"
                     }`}
+                    style={
+                      plan.name === "Enterprise"
+                        ? {
+                            backgroundImage:
+                              "linear-gradient(rgba(240,169,59,0.08), rgba(240,169,59,0.08))",
+                          }
+                        : undefined
+                    }
                   >
                     <span className="font-display text-[15px] font-semibold">
                       {plan.name}
@@ -282,7 +290,11 @@ export default function PricingPage() {
                         <td
                           key={i}
                           className={`p-4 text-center align-middle ${
-                            i === 1 ? "bg-[rgba(124,130,255,0.05)]" : ""
+                            i === 1
+                              ? "bg-[rgba(124,130,255,0.05)]"
+                              : i === 3
+                                ? "bg-[rgba(240,169,59,0.05)]"
+                                : ""
                           }`}
                         >
                           <CellValue value={value} ai={row.ai} gold={i === 3} />
