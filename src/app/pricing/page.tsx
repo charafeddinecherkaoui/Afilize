@@ -214,13 +214,13 @@ export default function PricingPage() {
           <table className="w-full min-w-[680px] border-collapse text-sm">
             <thead>
               <tr className="bg-surface-2">
-                <th className="sticky top-16 z-10 bg-surface-2 p-4 text-left align-middle font-display text-[15px] font-semibold">
+                <th className="bg-surface-2 p-4 text-left align-middle font-display text-[15px] font-semibold">
                   Feature
                 </th>
                 {planHeaders.map((plan) => (
                   <th
                     key={plan.name}
-                    className={`sticky top-16 z-10 p-4 text-center align-middle ${
+                    className={`p-4 text-center align-middle ${
                       plan.highlight
                         ? "bg-[#1c2440] text-accent-2"
                         : "bg-surface-2"
