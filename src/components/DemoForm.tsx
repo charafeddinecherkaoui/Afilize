@@ -8,8 +8,12 @@ const inputCls =
 
 const labelCls = "mb-1.5 block text-sm font-semibold text-text";
 
+const MAX_FILE_MB = 10;
+
 export default function DemoForm() {
   const [sent, setSent] = useState(false);
+  const [fileName, setFileName] = useState<string | null>(null);
+  const [fileError, setFileError] = useState<string | null>(null);
 
   if (sent) {
     return (
@@ -41,6 +45,8 @@ export default function DemoForm() {
       onSubmit={(e) => {
         e.preventDefault();
         setSent(true);
+        setFileName(null);
+        setFileError(null);
       }}
     >
       <div className="grid gap-5 min-[561px]:grid-cols-2">
@@ -130,6 +136,57 @@ export default function DemoForm() {
             rows={5}
             placeholder="Tell us a bit about what you're looking for"
             className={inputCls}
+          />
+        </div>
+        <div className="min-[561px]:col-span-2">
+          <label htmlFor="attachment" className={labelCls}>
+            Attachment (Optional)
+          </label>
+          <label
+            htmlFor="attachment"
+            className="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-line bg-ink-2 px-4 py-8 text-center transition-colors hover:border-accent"
+          >
+            <svg
+              viewBox="0 0 20 20"
+              fill="none"
+              className="h-6 w-6 text-text-muted"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M10 13V4M6.5 7.5L10 4l3.5 3.5" />
+              <path d="M3.5 13.5v2a1.5 1.5 0 0 0 1.5 1.5h10a1.5 1.5 0 0 0 1.5-1.5v-2" />
+            </svg>
+            <span className="text-sm text-text-muted">
+              {fileName ?? `Attach file (up to ${MAX_FILE_MB}MB)`}
+            </span>
+            {fileError && (
+              <span className="text-xs text-warn">{fileError}</span>
+            )}
+          </label>
+          <input
+            id="attachment"
+            name="attachment"
+            type="file"
+            className="sr-only"
+            onChange={(e) => {
+              const file = e.target.files?.[0];
+              if (!file) {
+                setFileName(null);
+                setFileError(null);
+                return;
+              }
+              if (file.size > MAX_FILE_MB * 1024 * 1024) {
+                e.target.value = "";
+                setFileName(null);
+                setFileError(`File is too large — the limit is ${MAX_FILE_MB}MB.`);
+                return;
+              }
+              setFileName(file.name);
+              setFileError(null);
+            }}
           />
         </div>
       </div>
