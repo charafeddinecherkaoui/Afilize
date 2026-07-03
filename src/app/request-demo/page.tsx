@@ -8,10 +8,16 @@ export const metadata: Metadata = {
     "Tell us what you're trying to grow. We'll map Afilize to your traffic and show you the tracking, rules, and AI working on your own offers.",
 };
 
-const contacts = [
+const contacts: {
+  label: string;
+  value: string;
+  href?: string;
+  icon: React.ReactNode;
+}[] = [
   {
     label: "Email",
     value: "support@afilize.ai",
+    href: "mailto:support@afilize.ai",
     icon: (
       <svg viewBox="0 0 20 20" fill="none" className="h-5 w-5" stroke="currentColor" strokeWidth="1.5">
         <rect x="2.5" y="4.5" width="15" height="11" rx="2" />
@@ -67,9 +73,18 @@ export default function RequestDemoPage() {
                     <span className="block text-sm text-text-dim">
                       {contact.label}
                     </span>
-                    <span className="block font-medium text-text">
-                      {contact.value}
-                    </span>
+                    {contact.href ? (
+                      <a
+                        href={contact.href}
+                        className="block font-medium text-text"
+                      >
+                        {contact.value}
+                      </a>
+                    ) : (
+                      <span className="block font-medium text-text">
+                        {contact.value}
+                      </span>
+                    )}
                   </span>
                 </li>
               ))}
