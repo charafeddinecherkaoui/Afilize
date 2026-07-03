@@ -167,7 +167,15 @@ const faq = [
   },
 ];
 
-function CellValue({ value, ai }: { value: Cell; ai?: boolean }) {
+function CellValue({
+  value,
+  ai,
+  gold,
+}: {
+  value: Cell;
+  ai?: boolean;
+  gold?: boolean;
+}) {
   if (value === true) {
     return ai ? (
       <AiStarIcon className="mx-auto h-4 w-4 text-accent-2" />
@@ -176,9 +184,17 @@ function CellValue({ value, ai }: { value: Cell; ai?: boolean }) {
     );
   }
   if (value === "—") {
-    return <span className="text-text-dim">—</span>;
+    return <span className={gold ? "text-warn" : "text-text-dim"}>—</span>;
   }
-  return <span className="font-mono text-[12.5px] text-text-muted">{value}</span>;
+  return (
+    <span
+      className={`font-mono text-[12.5px] ${
+        gold ? "text-warn" : "text-text-muted"
+      }`}
+    >
+      {value}
+    </span>
+  );
 }
 
 export default function PricingPage() {
@@ -223,7 +239,9 @@ export default function PricingPage() {
                     className={`p-4 text-center align-middle ${
                       plan.highlight
                         ? "bg-[#1c2440] text-accent-2"
-                        : "bg-surface-2"
+                        : plan.name === "Enterprise"
+                          ? "bg-surface-2 text-warn"
+                          : "bg-surface-2"
                     }`}
                   >
                     <span className="font-display text-[15px] font-semibold">
@@ -231,7 +249,11 @@ export default function PricingPage() {
                     </span>
                     <span
                       className={`block font-mono text-xs font-normal ${
-                        plan.highlight ? "text-accent-2" : "text-text-dim"
+                        plan.highlight
+                          ? "text-accent-2"
+                          : plan.name === "Enterprise"
+                            ? "text-warn"
+                            : "text-text-dim"
                       }`}
                     >
                       {plan.price}
@@ -263,7 +285,7 @@ export default function PricingPage() {
                             i === 1 ? "bg-[rgba(124,130,255,0.05)]" : ""
                           }`}
                         >
-                          <CellValue value={value} ai={row.ai} />
+                          <CellValue value={value} ai={row.ai} gold={i === 3} />
                         </td>
                       ))}
                     </tr>
