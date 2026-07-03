@@ -16,6 +16,7 @@
   --good: #3ddc91;
   --warn: #f0a93b;
   --flow: linear-gradient(100deg, #7c82ff 0%, #27d3ee 100%);
+  --flow-gold: linear-gradient(100deg, #f0a93b 0%, #ffd98a 100%);
   --radius: 18px;
 }
 
@@ -129,6 +130,10 @@ h4 {
 
 .flow-bg {
   background: var(--flow);
+}
+
+.flow-gold-bg {
+  background: var(--flow-gold);
 }
 
 /* ---------- Accessibility & motion (spec §1.9) ---------- */

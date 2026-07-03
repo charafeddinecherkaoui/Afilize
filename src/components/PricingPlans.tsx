@@ -127,7 +127,7 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
   const inner = (
     <div
       className={`flex h-full flex-col rounded-[17px] bg-surface p-[30px] ${
-        plan.popular ? "" : "border border-line"
+        plan.popular || plan.custom ? "" : "border border-line"
       }`}
     >
       <h3 className="font-display text-lg font-semibold tracking-[-0.01em]">
@@ -189,7 +189,9 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
         className={`mt-6 block rounded-xl py-2.5 text-center text-sm font-semibold ${
           plan.popular
             ? "flow-bg text-ink transition-shadow hover:shadow-[0_0_24px_rgba(124,130,255,0.45)]"
-            : "border border-line text-text transition-colors hover:border-accent"
+            : plan.custom
+              ? "flow-gold-bg text-ink transition-shadow hover:shadow-[0_0_24px_rgba(240,169,59,0.45)]"
+              : "border border-line text-text transition-colors hover:border-accent"
         }`}
       >
         {plan.cta}
@@ -202,6 +204,16 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
       <div className="relative rounded-[18px] p-px flow-bg shadow-[0_0_40px_rgba(124,130,255,0.25)]">
         <span className="absolute -top-3 left-1/2 z-10 -translate-x-1/2 rounded-full flow-bg px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-ink">
           Most popular
+        </span>
+        {inner}
+      </div>
+    );
+  }
+  if (plan.custom) {
+    return (
+      <div className="relative rounded-[18px] p-px flow-gold-bg shadow-[0_0_40px_rgba(240,169,59,0.25)]">
+        <span className="absolute -top-3 left-1/2 z-10 -translate-x-1/2 rounded-full flow-gold-bg px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-ink">
+          VIP
         </span>
         {inner}
       </div>
