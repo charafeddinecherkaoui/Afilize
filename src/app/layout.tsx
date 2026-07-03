@@ -22,6 +22,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    "https://afilize-charafeddinecherkaouis-projects.vercel.app",
+  ),
   title: "Afilize — Track. Automate. Optimize. Protect.",
   description:
     "Afilize captures every click and conversion with server-to-server precision, then puts AI, an automation engine, and built-in invoicing on top — so the platform runs the work you used to do by hand.",
