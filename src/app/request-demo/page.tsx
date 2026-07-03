@@ -76,7 +76,7 @@ export default function RequestDemoPage() {
                     {contact.href ? (
                       <a
                         href={contact.href}
-                        className="block font-medium text-text"
+                        className="block font-medium text-text transition-colors hover:text-accent-2 active:text-accent"
                       >
                         {contact.value}
                       </a>
