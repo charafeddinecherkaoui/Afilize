@@ -189,7 +189,7 @@ export default function FeaturesPage() {
             </ul>
           </Pillar>
 
-          <Pillar num="06" title="Invoicing & Finance">
+          <Pillar num="06" title="Invoicing & Finance" full>
             <p className="text-text-muted">
               The only tracker in its class that bills for you — from validated
               stats straight to a sent invoice.
