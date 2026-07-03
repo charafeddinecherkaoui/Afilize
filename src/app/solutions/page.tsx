@@ -311,7 +311,7 @@ export default function SolutionsPage() {
       <FinalCta
         title="Tell us what you're trying to grow"
         line="We'll map Afilize to your traffic and show you the numbers before you commit."
-        primary={{ href: "#", label: "Request a demo" }}
+        primary={{ href: "/request-demo", label: "Request a demo" }}
         secondary={{ href: "/pricing", label: "See pricing" }}
       />
     </main>

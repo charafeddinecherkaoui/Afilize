@@ -57,12 +57,12 @@ export default function Nav() {
         </ul>
 
         <div className="flex items-center gap-3">
-          <a
-            href="#"
+          <Link
+            href="/request-demo"
             className="hidden rounded-full flow-bg px-4 py-2 text-sm font-semibold text-ink transition-shadow hover:shadow-[0_0_24px_rgba(124,130,255,0.45)] min-[761px]:inline-block"
           >
             Request demo
-          </a>
+          </Link>
           <button
             type="button"
             onClick={() => setOpen(!open)}
@@ -115,12 +115,13 @@ export default function Nav() {
               );
             })}
             <li className="mt-2">
-              <a
-                href="#"
+              <Link
+                href="/request-demo"
+                onClick={() => setOpen(false)}
                 className="block rounded-full flow-bg px-4 py-2.5 text-center text-sm font-semibold text-ink"
               >
                 Request demo
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

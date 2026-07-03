@@ -240,7 +240,7 @@ export default function FeaturesPage() {
         title="See every feature on your own traffic"
         line="Point a test offer at Afilize and watch the tracking, rules, and AI work end to end."
         primary={{ href: "/pricing", label: "View pricing" }}
-        secondary={{ href: "#", label: "Request a demo" }}
+        secondary={{ href: "/request-demo", label: "Request a demo" }}
       />
     </main>
   );
