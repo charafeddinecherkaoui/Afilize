@@ -130,7 +130,7 @@ const market = [
   },
   {
     provider: "Swaarm",
-    entry: "€850",
+    entry: "$850",
     note: "/mo entry. Automation & fraud only on custom Scale plan. No native AI.",
   },
   {
