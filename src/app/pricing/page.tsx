@@ -310,10 +310,6 @@ export default function PricingPage() {
             ),
           )}
         </div>
-        <p className="mt-5 text-center font-mono text-xs text-text-dim">
-          Competitor figures from public pricing pages, June 2026. For
-          positioning only.
-        </p>
       </section>
 
       {/* 5.5 Billing FAQ */}
