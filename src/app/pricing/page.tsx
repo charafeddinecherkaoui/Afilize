@@ -214,13 +214,13 @@ export default function PricingPage() {
           <table className="w-full min-w-[680px] border-collapse text-sm">
             <thead>
               <tr className="bg-surface-2">
-                <th className="sticky top-16 z-10 bg-surface-2 p-4 text-left font-display text-[15px] font-semibold">
+                <th className="sticky top-16 z-10 bg-surface-2 p-4 text-left align-middle font-display text-[15px] font-semibold">
                   Feature
                 </th>
                 {planHeaders.map((plan) => (
                   <th
                     key={plan.name}
-                    className={`sticky top-16 z-10 p-4 text-center ${
+                    className={`sticky top-16 z-10 p-4 text-center align-middle ${
                       plan.highlight
                         ? "bg-[#1c2440] text-accent-2"
                         : "bg-surface-2"
@@ -246,18 +246,20 @@ export default function PricingPage() {
                   <tr>
                     <td
                       colSpan={5}
-                      className="border-t border-line-soft px-4 pb-2 pt-5 font-mono text-xs uppercase tracking-[0.18em] text-accent"
+                      className="border-t border-line-soft px-4 pb-2 pt-5 align-middle font-mono text-xs uppercase tracking-[0.18em] text-accent"
                     >
                       {group.group}
                     </td>
                   </tr>
                   {group.rows.map((row) => (
                     <tr key={row.label} className="border-t border-line-soft">
-                      <td className="p-4 text-text-muted">{row.label}</td>
+                      <td className="p-4 align-middle text-text-muted">
+                        {row.label}
+                      </td>
                       {row.values.map((value, i) => (
                         <td
                           key={i}
-                          className={`p-4 text-center ${
+                          className={`p-4 text-center align-middle ${
                             i === 1 ? "bg-[rgba(124,130,255,0.05)]" : ""
                           }`}
                         >
