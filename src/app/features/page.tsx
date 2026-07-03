@@ -41,7 +41,7 @@ function Pillar({
   return (
     <article
       className={`relative flex h-full flex-col overflow-hidden rounded-[18px] border border-line bg-surface p-[30px] ${
-        full ? "min-[821px]:col-span-2" : ""
+        full ? "md:col-span-2" : ""
       }`}
     >
       <span className="absolute inset-x-0 top-0 h-[2px] flow-bg" aria-hidden="true" />
@@ -104,7 +104,7 @@ export default function FeaturesPage() {
           title="Seven layers, one platform"
           sub="Each layer feeds the next — tracking data drives the AI, the AI drives the rules, the rules feed your invoices."
         />
-        <div className="mt-11 grid items-stretch gap-4 min-[821px]:auto-rows-fr min-[821px]:grid-cols-2">
+        <div className="mt-11 grid grid-cols-1 gap-6 md:grid-cols-2 items-stretch">
           <Pillar num="01" title="Tracking & Attribution">
             <p className="text-text-muted">
               Capture and attribute every click and conversion in real time,
@@ -136,7 +136,7 @@ export default function FeaturesPage() {
             </ul>
           </Pillar>
 
-          <Pillar num="03" title="Automation & Rules Engine" full>
+          <Pillar num="03" title="Automation & Rules Engine">
             <p className="text-text-muted">
               Build the rules your operation needs, and Afilize enforces them
               24/7 — pausing, blacklisting, blocking, and redirecting without
@@ -189,7 +189,7 @@ export default function FeaturesPage() {
             </ul>
           </Pillar>
 
-          <Pillar num="06" title="Invoicing & Finance" full>
+          <Pillar num="06" title="Invoicing & Finance">
             <p className="text-text-muted">
               The only tracker in its class that bills for you — from validated
               stats straight to a sent invoice.
