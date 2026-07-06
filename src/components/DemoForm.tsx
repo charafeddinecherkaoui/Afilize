@@ -17,7 +17,7 @@ export default function DemoForm() {
 
   if (sent) {
     return (
-      <div className="flex h-full min-h-[420px] flex-col items-center justify-center rounded-[18px] border border-line bg-surface p-[30px] text-center">
+      <div className="demo-form-success flex h-full min-h-[420px] flex-col items-center justify-center rounded-[18px] border border-line bg-surface p-[30px] text-center">
         <span className="flex h-12 w-12 items-center justify-center rounded-full border border-good/40 bg-good/10">
           <CheckIcon className="h-5 w-5 text-good" />
         </span>
@@ -41,7 +41,7 @@ export default function DemoForm() {
 
   return (
     <form
-      className="rounded-[18px] border border-line bg-surface p-[30px]"
+      className="demo-form-container rounded-[18px] border border-line bg-surface p-[30px]"
       onSubmit={(e) => {
         e.preventDefault();
         setSent(true);
@@ -49,8 +49,8 @@ export default function DemoForm() {
         setFileError(null);
       }}
     >
-      <div className="grid gap-5 min-[561px]:grid-cols-2">
-        <div>
+      <div className="form-fields-grid grid gap-5 min-[561px]:grid-cols-2">
+        <div className="form-field">
           <label htmlFor="fullName" className={labelCls}>
             Full name
           </label>
@@ -60,10 +60,10 @@ export default function DemoForm() {
             type="text"
             required
             placeholder="Your full name"
-            className={inputCls}
+            className={`form-input-fullname ${inputCls}`}
           />
         </div>
-        <div>
+        <div className="form-field">
           <label htmlFor="company" className={labelCls}>
             Company name
           </label>
@@ -73,10 +73,10 @@ export default function DemoForm() {
             type="text"
             required
             placeholder="Agency, advertiser, or network name"
-            className={inputCls}
+            className={`form-input-company ${inputCls}`}
           />
         </div>
-        <div>
+        <div className="form-field">
           <label htmlFor="email" className={labelCls}>
             Business email
           </label>
@@ -86,14 +86,20 @@ export default function DemoForm() {
             type="email"
             required
             placeholder="We'll reach you here"
-            className={inputCls}
+            className={`form-input-email ${inputCls}`}
           />
         </div>
-        <div>
+        <div className="form-field">
           <label htmlFor="role" className={labelCls}>
             Role
           </label>
-          <select id="role" name="role" required defaultValue="" className={inputCls}>
+          <select
+            id="role"
+            name="role"
+            required
+            defaultValue=""
+            className={`form-input-role ${inputCls}`}
+          >
             <option value="" disabled>
               Select your role
             </option>
@@ -104,7 +110,7 @@ export default function DemoForm() {
             <option>Other</option>
           </select>
         </div>
-        <div className="min-[561px]:col-span-2">
+        <div className="form-field min-[561px]:col-span-2">
           <label htmlFor="subject" className={labelCls}>
             Subject
           </label>
@@ -113,7 +119,7 @@ export default function DemoForm() {
             name="subject"
             required
             defaultValue=""
-            className={inputCls}
+            className={`form-input-subject ${inputCls}`}
           >
             <option value="" disabled>
               What can we help you with?
@@ -125,7 +131,7 @@ export default function DemoForm() {
             <option>Other</option>
           </select>
         </div>
-        <div className="min-[561px]:col-span-2">
+        <div className="form-field min-[561px]:col-span-2">
           <label htmlFor="message" className={labelCls}>
             Message
           </label>
@@ -135,16 +141,16 @@ export default function DemoForm() {
             required
             rows={5}
             placeholder="Tell us a bit about what you're looking for"
-            className={inputCls}
+            className={`form-textarea-message ${inputCls}`}
           />
         </div>
-        <div className="min-[561px]:col-span-2">
+        <div className="form-field form-field-attachment min-[561px]:col-span-2">
           <label htmlFor="attachment" className={labelCls}>
             Attachment (Optional)
           </label>
           <label
             htmlFor="attachment"
-            className="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-line bg-ink-2 px-4 py-8 text-center transition-colors hover:border-accent"
+            className="attachment-dropzone flex cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-line bg-ink-2 px-4 py-8 text-center transition-colors hover:border-accent"
           >
             <svg
               viewBox="0 0 20 20"
@@ -170,7 +176,7 @@ export default function DemoForm() {
             id="attachment"
             name="attachment"
             type="file"
-            className="sr-only"
+            className="form-input-attachment sr-only"
             onChange={(e) => {
               const file = e.target.files?.[0];
               if (!file) {
@@ -193,7 +199,7 @@ export default function DemoForm() {
 
       <button
         type="submit"
-        className="mt-6 w-full rounded-xl flow-bg py-3.5 text-sm font-semibold text-ink transition-shadow hover:shadow-[0_0_28px_rgba(124,130,255,0.45)]"
+        className="form-submit-btn mt-6 w-full rounded-xl flow-bg py-3.5 text-sm font-semibold text-ink transition-shadow hover:shadow-[0_0_28px_rgba(124,130,255,0.45)]"
       >
         Send message
       </button>

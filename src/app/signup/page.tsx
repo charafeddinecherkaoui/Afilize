@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 
 export default function SignupPage() {
   return (
-    <main className="flex-1">
+    <main className="signup-page flex-1">
       <section className="wrap pb-16 pt-16">
-        <div className="grid items-start gap-10 min-[881px]:grid-cols-[1.1fr_1fr]">
+        <div className="split-screen-layout grid items-start gap-10 min-[881px]:grid-cols-[1.1fr_1fr]">
           {/* Left — pitch */}
-          <div>
+          <div className="split-left-branding">
             <Eyebrow>Free Trial</Eyebrow>
             <h1 className="mt-6 text-[clamp(34px,6vw,58px)] font-bold leading-[1.03] tracking-[-0.03em]">
               Create your <span className="flow-text">workspace</span>
@@ -45,7 +45,9 @@ export default function SignupPage() {
           </div>
 
           {/* Right — form */}
-          <SignupForm />
+          <div className="split-right-form">
+            <SignupForm />
+          </div>
         </div>
       </section>
     </main>

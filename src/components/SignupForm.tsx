@@ -13,7 +13,7 @@ export default function SignupForm() {
 
   if (sent) {
     return (
-      <div className="flex min-h-[380px] flex-col items-center justify-center rounded-[18px] border border-line bg-surface p-[30px] text-center">
+      <div className="signup-form-success flex min-h-[380px] flex-col items-center justify-center rounded-[18px] border border-line bg-surface p-[30px] text-center">
         <span className="flex h-12 w-12 items-center justify-center rounded-full border border-good/40 bg-good/10">
           <CheckIcon className="h-5 w-5 text-good" />
         </span>
@@ -30,14 +30,14 @@ export default function SignupForm() {
 
   return (
     <form
-      className="rounded-[18px] border border-line bg-surface p-[30px]"
+      className="signup-form-container rounded-[18px] border border-line bg-surface p-[30px]"
       onSubmit={(e) => {
         e.preventDefault();
         setSent(true);
       }}
     >
-      <div className="grid gap-5">
-        <div>
+      <div className="form-fields-grid grid gap-5">
+        <div className="form-field">
           <label htmlFor="signupName" className={labelCls}>
             Full name
           </label>
@@ -47,10 +47,10 @@ export default function SignupForm() {
             type="text"
             required
             placeholder="Your full name"
-            className={inputCls}
+            className={`form-input-fullname ${inputCls}`}
           />
         </div>
-        <div>
+        <div className="form-field">
           <label htmlFor="signupEmail" className={labelCls}>
             Work email
           </label>
@@ -60,10 +60,10 @@ export default function SignupForm() {
             type="email"
             required
             placeholder="you@company.com"
-            className={inputCls}
+            className={`form-input-email ${inputCls}`}
           />
         </div>
-        <div>
+        <div className="form-field">
           <label htmlFor="signupCompany" className={labelCls}>
             Company name
           </label>
@@ -73,10 +73,10 @@ export default function SignupForm() {
             type="text"
             required
             placeholder="Agency, advertiser, or network name"
-            className={inputCls}
+            className={`form-input-company ${inputCls}`}
           />
         </div>
-        <div>
+        <div className="form-field">
           <label htmlFor="signupPlan" className={labelCls}>
             Plan
           </label>
@@ -85,7 +85,7 @@ export default function SignupForm() {
             name="plan"
             required
             defaultValue=""
-            className={inputCls}
+            className={`form-input-plan ${inputCls}`}
           >
             <option value="" disabled>
               Choose your plan
@@ -99,7 +99,7 @@ export default function SignupForm() {
 
       <button
         type="submit"
-        className="mt-6 w-full rounded-xl flow-bg py-3.5 text-sm font-semibold text-ink transition-shadow hover:shadow-[0_0_28px_rgba(124,130,255,0.45)]"
+        className="form-submit-btn mt-6 w-full rounded-xl flow-bg py-3.5 text-sm font-semibold text-ink transition-shadow hover:shadow-[0_0_28px_rgba(124,130,255,0.45)]"
       >
         Start 14-day trial
       </button>

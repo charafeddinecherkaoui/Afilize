@@ -48,11 +48,11 @@ const contacts: {
 
 export default function RequestDemoPage() {
   return (
-    <main className="flex-1">
+    <main className="request-demo-page flex-1">
       <section className="wrap pb-16 pt-16">
-        <div className="grid items-start gap-10 min-[881px]:grid-cols-[1fr_1.1fr]">
+        <div className="split-screen-layout grid items-start gap-10 min-[881px]:grid-cols-[1fr_1.1fr]">
           {/* Left — intro + contact details */}
-          <div>
+          <div className="split-left-branding">
             <Eyebrow>Request a Demo</Eyebrow>
             <h1 className="mt-6 text-[clamp(34px,6vw,58px)] font-bold leading-[1.03] tracking-[-0.03em]">
               Let&apos;s <span className="flow-text">connect</span>
@@ -92,7 +92,7 @@ export default function RequestDemoPage() {
           </div>
 
           {/* Right — form */}
-          <div>
+          <div className="split-right-form">
             <div className="mb-6">
               <h2 className="font-display text-[22px] font-semibold tracking-[-0.01em]">
                 Send us a message

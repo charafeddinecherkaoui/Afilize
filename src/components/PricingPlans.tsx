@@ -125,9 +125,11 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
       ? "Billed monthly"
       : plan.billedYearly;
 
+  const cardName = `pricing-card-${plan.name.toLowerCase()}`;
+
   const inner = (
     <div
-      className={`flex h-full flex-col rounded-[17px] bg-surface p-[30px] ${
+      className={`${cardName} card-body flex h-full flex-col rounded-[17px] bg-surface p-[30px] ${
         plan.popular || plan.custom ? "" : "border border-line"
       }`}
     >
@@ -166,7 +168,7 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
         ))}
       </ul>
 
-      <ul className="mt-4 flex-1 space-y-2.5">
+      <ul className="card-feature-list mt-4 flex-1 space-y-2.5">
         {plan.lead && (
           <li className="text-[13px] font-semibold text-text">{plan.lead}</li>
         )}
@@ -187,7 +189,7 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
 
       <Link
         href={plan.custom ? "/request-demo" : "/signup"}
-        className={`mt-6 block rounded-xl py-2.5 text-center text-sm font-semibold ${
+        className={`card-submit-button mt-6 block rounded-xl py-2.5 text-center text-sm font-semibold ${
           plan.popular
             ? "flow-bg text-ink transition-shadow hover:shadow-[0_0_24px_rgba(124,130,255,0.45)]"
             : plan.custom
@@ -202,8 +204,8 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
 
   if (plan.popular) {
     return (
-      <div className="relative rounded-[18px] p-px flow-bg shadow-[0_0_40px_rgba(124,130,255,0.25)]">
-        <span className="absolute -top-3 left-1/2 z-10 -translate-x-1/2 rounded-full flow-bg px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-ink">
+      <div className="pricing-card-frame relative rounded-[18px] p-px flow-bg shadow-[0_0_40px_rgba(124,130,255,0.25)]">
+        <span className="card-badge absolute -top-3 left-1/2 z-10 -translate-x-1/2 rounded-full flow-bg px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-ink">
           Most popular
         </span>
         {inner}
@@ -212,8 +214,8 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
   }
   if (plan.custom) {
     return (
-      <div className="relative rounded-[18px] p-px flow-gold-bg shadow-[0_0_40px_rgba(240,169,59,0.25)]">
-        <span className="absolute -top-3 left-1/2 z-10 -translate-x-1/2 rounded-full flow-gold-bg px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-ink">
+      <div className="pricing-card-frame relative rounded-[18px] p-px flow-gold-bg shadow-[0_0_40px_rgba(240,169,59,0.25)]">
+        <span className="card-badge absolute -top-3 left-1/2 z-10 -translate-x-1/2 rounded-full flow-gold-bg px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-ink">
           VIP
         </span>
         {inner}
@@ -227,9 +229,9 @@ export default function PricingPlans() {
   const [mode, setMode] = useState<BillingMode>("monthly");
 
   return (
-    <div>
+    <div className="pricing-plans">
       {/* Billing toggle (spec §5.1 / §5.6) */}
-      <div className="flex flex-wrap items-center justify-center gap-3">
+      <div className="billing-toggle flex flex-wrap items-center justify-center gap-3">
         <div
           role="tablist"
           aria-label="Billing period"
@@ -270,7 +272,7 @@ export default function PricingPlans() {
       </div>
 
       {/* Plan cards */}
-      <div className="mt-10 grid gap-4 min-[561px]:grid-cols-2 min-[1025px]:grid-cols-4">
+      <div className="pricing-cards-grid mt-10 grid gap-4 min-[561px]:grid-cols-2 min-[1025px]:grid-cols-4">
         {plans.map((plan) => (
           <PlanCard key={plan.name} plan={plan} mode={mode} />
         ))}
