@@ -13,9 +13,9 @@ export default function SignupPage() {
   return (
     <main className="signup-page flex-1">
       <section className="wrap pb-16 pt-16">
-        <div className="two-column-layout grid items-start gap-10 min-[881px]:grid-cols-[1.1fr_1fr]">
+        <div className="split-screen-layout grid items-start gap-10 min-[881px]:grid-cols-[1.1fr_1fr]">
           {/* Left — pitch */}
-          <div className="branding-column">
+          <div className="split-left-branding">
             <Eyebrow>Free Trial</Eyebrow>
             <h1 className="mt-6 text-[clamp(34px,6vw,58px)] font-bold leading-[1.03] tracking-[-0.03em]">
               Create your <span className="flow-text">workspace</span>
@@ -45,7 +45,7 @@ export default function SignupPage() {
           </div>
 
           {/* Right — form */}
-          <div className="form-column">
+          <div className="split-right-form">
             <SignupForm />
           </div>
         </div>
