@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 export default function SignupPage() {
   return (
     <main className="signup-page flex-1">
-      <section className="wrap pb-16 pt-16">
-        <div className="two-column-layout grid items-start gap-10 min-[881px]:grid-cols-[1.1fr_1fr]">
+      <section className="signup-section-container mx-auto max-w-7xl px-4 py-16">
+        <div className="two-column-layout grid grid-cols-1 items-start gap-10 lg:grid-cols-2">
           {/* Left — pitch */}
           <div className="branding-column">
             <Eyebrow>Free Trial</Eyebrow>

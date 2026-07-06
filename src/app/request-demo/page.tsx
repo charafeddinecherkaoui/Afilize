@@ -49,8 +49,8 @@ const contacts: {
 export default function RequestDemoPage() {
   return (
     <main className="request-demo-page flex-1">
-      <section className="wrap pb-16 pt-16">
-        <div className="two-column-layout grid items-start gap-10 min-[881px]:grid-cols-[1fr_1.1fr]">
+      <section className="demo-section-container mx-auto max-w-7xl px-4 py-16">
+        <div className="two-column-layout grid grid-cols-1 items-start gap-10 lg:grid-cols-2">
           {/* Left — intro + contact details */}
           <div className="branding-column">
             <Eyebrow>Request a Demo</Eyebrow>
