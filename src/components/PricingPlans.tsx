@@ -129,7 +129,7 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
 
   const inner = (
     <div
-      className={`${cardName} card-body flex h-full flex-col rounded-[17px] bg-surface p-[30px] ${
+      className={`${cardName} pricing-card-content flex h-full flex-col rounded-[17px] bg-surface p-[30px] ${
         plan.popular || plan.custom ? "" : "border border-line"
       }`}
     >
@@ -168,7 +168,7 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
         ))}
       </ul>
 
-      <ul className="card-feature-list mt-4 flex-1 space-y-2.5">
+      <ul className="pricing-card-feature-list mt-4 flex-1 space-y-2.5">
         {plan.lead && (
           <li className="text-[13px] font-semibold text-text">{plan.lead}</li>
         )}
@@ -189,7 +189,7 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
 
       <Link
         href={plan.custom ? "/request-demo" : "/signup"}
-        className={`card-submit-button mt-6 block rounded-xl py-2.5 text-center text-sm font-semibold ${
+        className={`pricing-card-action-button mt-6 block rounded-xl py-2.5 text-center text-sm font-semibold ${
           plan.popular
             ? "flow-bg text-ink transition-shadow hover:shadow-[0_0_24px_rgba(124,130,255,0.45)]"
             : plan.custom
@@ -204,8 +204,8 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
 
   if (plan.popular) {
     return (
-      <div className="pricing-card-frame relative rounded-[18px] p-px flow-bg shadow-[0_0_40px_rgba(124,130,255,0.25)]">
-        <span className="card-badge absolute -top-3 left-1/2 z-10 -translate-x-1/2 rounded-full flow-bg px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-ink">
+      <div className="pricing-card-highlighted-wrapper relative rounded-[18px] p-px flow-bg shadow-[0_0_40px_rgba(124,130,255,0.25)]">
+        <span className="pricing-card-badge absolute -top-3 left-1/2 z-10 -translate-x-1/2 rounded-fullflow-bg px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-ink">
           Most popular
         </span>
         {inner}
@@ -214,8 +214,8 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
   }
   if (plan.custom) {
     return (
-      <div className="pricing-card-frame relative rounded-[18px] p-px flow-gold-bg shadow-[0_0_40px_rgba(240,169,59,0.25)]">
-        <span className="card-badge absolute -top-3 left-1/2 z-10 -translate-x-1/2 rounded-full flow-gold-bg px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-ink">
+      <div className="pricing-card-highlighted-wrapper relative rounded-[18px] p-px flow-gold-bg shadow-[0_0_40px_rgba(240,169,59,0.25)]">
+        <span className="pricing-card-badge absolute -top-3 left-1/2 z-10 -translate-x-1/2 rounded-fullflow-gold-bg px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-ink">
           VIP
         </span>
         {inner}
@@ -229,7 +229,7 @@ export default function PricingPlans() {
   const [mode, setMode] = useState<BillingMode>("monthly");
 
   return (
-    <div className="pricing-plans">
+    <div className="pricing-section">
       {/* Billing toggle (spec §5.1 / §5.6) */}
       <div className="billing-toggle flex flex-wrap items-center justify-center gap-3">
         <div

@@ -17,7 +17,7 @@ export default function DemoForm() {
 
   if (sent) {
     return (
-      <div className="demo-form-success flex h-full min-h-[420px] flex-col items-center justify-center rounded-[18px] border border-line bg-surface p-[30px] text-center">
+      <div className="demo-form-success-message flex h-full min-h-[420px] flex-col items-center justify-center rounded-[18px] border border-line bg-surface p-[30px] text-center">
         <span className="flex h-12 w-12 items-center justify-center rounded-full border border-good/40 bg-good/10">
           <CheckIcon className="h-5 w-5 text-good" />
         </span>
@@ -199,7 +199,7 @@ export default function DemoForm() {
 
       <button
         type="submit"
-        className="form-submit-btn mt-6 w-full rounded-xl flow-bg py-3.5 text-sm font-semibold text-ink transition-shadow hover:shadow-[0_0_28px_rgba(124,130,255,0.45)]"
+        className="form-submit-button mt-6 w-full rounded-xl flow-bg py-3.5 text-sm font-semibold text-ink transition-shadow hover:shadow-[0_0_28px_rgba(124,130,255,0.45)]"
       >
         Send message
       </button>
