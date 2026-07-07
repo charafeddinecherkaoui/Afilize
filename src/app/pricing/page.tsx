@@ -115,30 +115,6 @@ const planHeaders = [
   { name: "Enterprise", price: "Custom" },
 ];
 
-const market = [
-  {
-    provider: "Afilize",
-    entry: "$299",
-    note: "/mo entry. AI chatbot at $699. Full AI + invoicing at $1,499. Transparent · automation from tier 2 · no long lock-in.",
-    highlight: true,
-  },
-  {
-    provider: "Affise",
-    entry: "$625",
-    note: "/mo (7K conversions). Automations locked to the $2,499 Custom tier. No native AI.",
-  },
-  {
-    provider: "Swaarm",
-    entry: "$850",
-    note: "/mo entry. Automation & fraud only on custom Scale plan. No native AI.",
-  },
-  {
-    provider: "Everflow",
-    entry: "Quote",
-    note: "No public pricing. Metered by payout volume, 6-month commitment. No native AI.",
-  },
-];
-
 const faq = [
   {
     q: "What counts as a conversion?",
@@ -305,45 +281,6 @@ export default function PricingPage() {
               ))}
             </tbody>
           </table>
-        </div>
-      </section>
-
-      {/* 5.4 Market comparison */}
-      <section className="wrap pb-16">
-        <SectionHead
-          label="Where We Land"
-          title="Priced below the legacy trackers"
-          sub="Same conversion-based model the market already understands — but AI, automation, and invoicing start two tiers earlier."
-        />
-        <div className="mt-11 grid gap-4 min-[461px]:grid-cols-2 min-[881px]:grid-cols-4">
-          {market.map((item) =>
-            item.highlight ? (
-              <div key={item.provider} className="rounded-[18px] p-px flow-bg">
-                <div className="flex h-full flex-col rounded-[17px] bg-surface p-[30px]">
-                  <h3 className="font-display text-lg font-semibold">
-                    {item.provider}
-                  </h3>
-                  <p className="mt-3 font-mono text-[28px] font-bold leading-none">
-                    {item.entry}
-                  </p>
-                  <p className="mt-3 text-sm text-text-muted">{item.note}</p>
-                </div>
-              </div>
-            ) : (
-              <div
-                key={item.provider}
-                className="flex flex-col rounded-[18px] border border-line bg-surface p-[30px]"
-              >
-                <h3 className="font-display text-lg font-semibold">
-                  {item.provider}
-                </h3>
-                <p className="mt-3 font-mono text-[28px] font-bold leading-none text-text-muted">
-                  {item.entry}
-                </p>
-                <p className="mt-3 text-sm text-text-muted">{item.note}</p>
-              </div>
-            ),
-          )}
         </div>
       </section>
 
