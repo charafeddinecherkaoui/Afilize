@@ -27,7 +27,7 @@ const table: TableGroup[] = [
     group: "Tracking & Attribution",
     rows: [
       {
-        label: "Clicks / impressions / conversions",
+        label: "Conversions",
         values: ["10K", "50K", "200K", "Custom"],
       },
       { label: "Installs, events, purchases", values: [true, true, true, true] },
