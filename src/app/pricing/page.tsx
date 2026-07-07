@@ -95,7 +95,6 @@ const table: TableGroup[] = [
         values: ["Read-only", "Standard", "Unlimited", "Unlimited"],
       },
       { label: "MMP integrations", values: ["—", true, true, true] },
-      { label: "White-label portal", values: ["—", "—", true, true] },
       { label: "SSO & advanced roles", values: ["—", "—", "—", true] },
       {
         label: "Dedicated infrastructure + SLA",
