@@ -58,12 +58,6 @@ export default function Nav() {
 
         <div className="nav-actions flex items-center gap-3">
           <Link
-            href="/signup"
-            className="btn-sign-up hidden rounded-full border border-line bg-transparent px-4 py-2 text-sm font-semibold text-text transition-colors hover:border-accent min-[761px]:inline-block"
-          >
-            Sign up
-          </Link>
-          <Link
             href="/request-demo"
             className="btn-request-demo hidden rounded-full flow-bg px-4 py-2 text-sm font-semibold text-ink transition-shadow hover:shadow-[0_0_24px_rgba(124,130,255,0.45)] min-[761px]:inline-block"
           >
@@ -120,15 +114,6 @@ export default function Nav() {
                 </li>
               );
             })}
-            <li className="mt-2">
-              <Link
-                href="/signup"
-                onClick={() => setOpen(false)}
-                className="btn-sign-up block rounded-full border border-line px-4 py-2.5 text-center text-sm font-semibold text-text"
-              >
-                Sign up
-              </Link>
-            </li>
             <li className="mt-2">
               <Link
                 href="/request-demo"

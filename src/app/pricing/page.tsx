@@ -305,7 +305,7 @@ export default function PricingPage() {
       <FinalCta
         title="See it running on your own traffic"
         line="Spin up a workspace, point a test offer at it, and watch the rules and AI work in real time."
-        primary={{ href: "/signup", label: "Start 14-day trial" }}
+        primary={{ href: "/request-demo", label: "Start 14-day trial" }}
         secondary={{ href: "/solutions", label: "What you'll achieve" }}
       />
     </main>

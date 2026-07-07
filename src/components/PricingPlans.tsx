@@ -188,7 +188,7 @@ function PlanCard({ plan, mode }: { plan: Plan; mode: BillingMode }) {
       </ul>
 
       <Link
-        href={plan.custom ? "/request-demo" : "/signup"}
+        href="/request-demo"
         className={`card-submit-button mt-6 block rounded-xl py-2.5 text-center text-sm font-semibold ${
           plan.popular
             ? "flow-bg text-ink transition-shadow hover:shadow-[0_0_24px_rgba(124,130,255,0.45)]"
