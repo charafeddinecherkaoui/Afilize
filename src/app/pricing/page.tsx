@@ -44,7 +44,7 @@ const table: TableGroup[] = [
     rows: [
       { label: "Global dashboard", values: [true, true, true, true] },
       { label: "Breakdown views", values: [true, true, true, true] },
-      { label: "Import & export", values: ["—", true, true, true] },
+      { label: "Import & export", values: [true, true, true, true] },
       {
         label: "Reports as links, publisher-filtered",
         values: ["Basic", true, true, true],
