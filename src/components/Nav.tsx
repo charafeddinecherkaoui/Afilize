@@ -18,7 +18,7 @@ export default function Nav() {
     <header className="main-navbar sticky top-0 z-50 border-b border-line-soft bg-[rgba(8,11,22,0.72)] backdrop-blur-[14px]">
       <nav className="main-navbar-inner wrap flex h-16 items-center justify-between gap-4">
         <Link
-          href="/"
+          href="/features"
           className="nav-logo flex items-center gap-2.5"
           aria-label="Afilize home"
         >
