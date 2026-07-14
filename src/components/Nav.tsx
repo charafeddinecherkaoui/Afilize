@@ -58,10 +58,10 @@ export default function Nav() {
 
         <div className="nav-actions flex items-center gap-3">
           <Link
-            href="/request-demo"
-            className="btn-request-demo hidden rounded-full flow-bg px-4 py-2 text-sm font-semibold text-ink transition-shadow hover:shadow-[0_0_24px_rgba(124,130,255,0.45)] min-[761px]:inline-block"
+            href="/join-waitlist"
+            className="btn-join-waitlist hidden rounded-full flow-bg px-4 py-2 text-sm font-semibold text-ink transition-shadow hover:shadow-[0_0_24px_rgba(124,130,255,0.45)] min-[761px]:inline-block"
           >
-            Request demo
+            Join the waitlist
           </Link>
           <button
             type="button"
@@ -116,11 +116,11 @@ export default function Nav() {
             })}
             <li className="mt-2">
               <Link
-                href="/request-demo"
+                href="/join-waitlist"
                 onClick={() => setOpen(false)}
-                className="btn-request-demo block rounded-full flow-bg px-4 py-2.5 text-center text-sm font-semibold text-ink"
+                className="btn-join-waitlist block rounded-full flow-bg px-4 py-2.5 text-center text-sm font-semibold text-ink"
               >
-                Request demo
+                Join the waitlist
               </Link>
             </li>
           </ul>

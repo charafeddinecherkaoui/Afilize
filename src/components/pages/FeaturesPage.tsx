@@ -730,8 +730,8 @@ export default function FeaturesPage() {
 
       <FinalCta
         title="See every feature in a live account"
-        line="Book a 30-minute demo and we'll walk through the exact pillars that matter most to your business."
-        primary={{ to: "/request-demo", label: "Request a demo" }}
+        line="Join the waitlist and we'll notify you when early access opens for your stack."
+        primary={{ to: "/join-waitlist", label: "Join the waitlist" }}
         secondary={{ to: "/pricing", label: "View pricing" }}
       />
     </>

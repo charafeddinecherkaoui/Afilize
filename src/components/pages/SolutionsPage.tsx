@@ -609,8 +609,8 @@ export default function SolutionsPage() {
 
       <FinalCta
         title="Ready to see the difference?"
-        line="Book a 30-minute demo tailored to your role — advertiser, publisher, agency, or network."
-        primary={{ to: "/request-demo", label: "Request a demo" }}
+        line="Join the waitlist and get early access tailored to your role — advertiser, publisher, agency, or network."
+        primary={{ to: "/join-waitlist", label: "Join the waitlist" }}
         secondary={{ to: "/pricing", label: "See pricing" }}
       />
     </>

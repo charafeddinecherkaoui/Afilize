@@ -40,10 +40,10 @@ const CONTACTS = [
 ];
 
 const WHAT_HAPPENS = [
-  "We review your request within one business day",
-  "A specialist schedules a 30-minute session around your calendar",
-  "Live walkthrough of the features most relevant to your stack",
-  "Q&A, pricing, and next-steps in the same call",
+  "We review your details within one business day",
+  "You're added to our priority early-access list",
+  "We email you as soon as onboarding opens",
+  "Founding members get priority support and launch pricing",
 ];
 
 // ─── Form ─────────────────────────────────────────────────────────────────────
@@ -125,12 +125,13 @@ function Select({
   );
 }
 
-function DemoForm() {
+function WaitlistForm() {
   const [form, setForm] = useState<FormState>({
     name: "", email: "", company: "", role: "", size: "", message: "",
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const reduced = usePRM();
 
   function set(field: keyof FormState) {
@@ -140,9 +141,31 @@ function DemoForm() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        throw new Error(data.error ?? "Something went wrong. Please try again.");
+      }
+
+      setSubmitted(true);
+    } catch (submitError) {
+      setError(
+        submitError instanceof Error
+          ? submitError.message
+          : "Something went wrong. Please try again.",
+      );
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -169,19 +192,23 @@ function DemoForm() {
               className="text-2xl font-bold tracking-[-0.02em]"
               style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#eaeef8" }}
             >
-              Request received!
+              You&apos;re on the list!
             </h3>
             <p className="max-w-[360px] text-sm" style={{ color: "#9097b2" }}>
-              {"We'll review your details and reach out within one business day to schedule your demo."}
+              We&apos;ll reach out within one business day with your place in line and what early access looks like.
             </p>
             <button
-              onClick={() => { setSubmitted(false); setForm({ name: "", email: "", company: "", role: "", size: "", message: "" }); }}
+              onClick={() => {
+                setSubmitted(false);
+                setError(null);
+                setForm({ name: "", email: "", company: "", role: "", size: "", message: "" });
+              }}
               className="mt-2 text-sm transition-colors"
               style={{ color: "#646c8a" }}
               onMouseOver={(e) => { e.currentTarget.style.color = "#9097b2"; }}
               onMouseOut={(e) => { e.currentTarget.style.color = "#646c8a"; }}
             >
-              Submit another request
+              Submit another signup
             </button>
           </motion.div>
         ) : (
@@ -195,7 +222,7 @@ function DemoForm() {
               className="text-xl font-bold tracking-[-0.01em]"
               style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#eaeef8" }}
             >
-              Book your demo
+              Join the waitlist
             </h3>
 
             <div className="grid gap-4 sm:grid-cols-2">
@@ -227,6 +254,12 @@ function DemoForm() {
               />
             </div>
 
+            {error && (
+              <p className="rounded-xl px-4 py-3 text-sm" style={{ background: "rgba(212,24,61,0.12)", color: "#f87171", border: "1px solid rgba(212,24,61,0.25)" }}>
+                {error}
+              </p>
+            )}
+
             <button
               type="submit"
               disabled={loading}
@@ -240,12 +273,12 @@ function DemoForm() {
                   Sending…
                 </>
               ) : (
-                "Request my demo →"
+                "Join the waitlist →"
               )}
             </button>
 
             <p className="text-center text-xs" style={{ color: "#646c8a" }}>
-              No credit card required. We respond within one business day.
+              No spam. We only email when access opens or your spot moves up.
             </p>
           </motion.form>
         )}
@@ -255,7 +288,7 @@ function DemoForm() {
 }
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
-export default function RequestDemoPage() {
+export default function WaitlistPage() {
   const reduced = usePRM();
 
   return (
@@ -268,19 +301,19 @@ export default function RequestDemoPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={reduced ? { duration: 0 } : { duration: 0.55, ease: E_OUT }}
           >
-            <Eyebrow>Get a demo</Eyebrow>
+            <Eyebrow>Early access</Eyebrow>
 
             <h1
               className="mt-5 font-bold leading-tight tracking-[-0.03em]"
               style={{ fontSize: "clamp(28px,4vw,48px)", fontFamily: "'Space Grotesk', sans-serif" }}
             >
-              See Afilize{" "}
-              <span className="flow-text">working for your business</span>
+              Join the Afilize{" "}
+              <span className="flow-text">waitlist</span>
             </h1>
 
             <p className="mt-4 text-lg" style={{ color: "#9097b2" }}>
-              A 30-minute live walkthrough built around your exact stack —
-              no slides, no sales pitch, just the features that matter to you.
+              Afilize isn&apos;t live yet — get on the list now for early access,
+              founding pricing, and priority onboarding when we launch.
             </p>
 
             {/* What happens */}
@@ -352,7 +385,7 @@ export default function RequestDemoPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={reduced ? { duration: 0 } : { duration: 0.6, delay: 0.12, ease: E_OUT }}
           >
-            <DemoForm />
+            <WaitlistForm />
           </motion.div>
         </div>
       </section>

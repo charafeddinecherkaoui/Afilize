@@ -90,7 +90,7 @@ const PLANS = [
       { text: "1 custom domain" },
       { text: "Email support" },
     ] as Feature[],
-    cta: "Start free trial", popular: false, custom: false, animDelay: 0,
+    cta: "Join waitlist", popular: false, custom: false, animDelay: 0,
   },
   {
     name: "Growth", monthly: "$699", annual: "$579",
@@ -113,7 +113,7 @@ const PLANS = [
       { text: "3 domains" },
       { text: "Chat support" },
     ] as Feature[],
-    cta: "Start free trial", popular: true, custom: false, animDelay: 0.3,
+    cta: "Join waitlist", popular: true, custom: false, animDelay: 0.3,
   },
   {
     name: "Scale", monthly: "$1,499", annual: "$1,249",
@@ -134,7 +134,7 @@ const PLANS = [
       { text: "10 domains" },
       { text: "Priority support + dedicated manager" },
     ] as Feature[],
-    cta: "Start free trial", popular: false, custom: false, animDelay: 0.08,
+    cta: "Join waitlist", popular: false, custom: false, animDelay: 0.08,
   },
   {
     name: "Enterprise", monthly: "Custom", annual: "Custom",
@@ -229,8 +229,8 @@ const FAQ_ITEMS = [
     icon: <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 3v2M13 3v2"/></svg>,
   },
   {
-    q: "Is there a free trial?",
-    a: "14 days on Launch, Growth, and Scale. No credit card required.",
+    q: "How do I get access?",
+    a: "Join the waitlist. We onboard founding members in waves and email you when your spot opens.",
     icon: <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"><circle cx="10" cy="10" r="7.5"/><path d="M10 6v4l2.5 2.5"/></svg>,
   },
   {
@@ -470,7 +470,7 @@ function PlanCard({ plan, planIdx, mode, reduced, isMobile }: {
       </ul>
 
       {/* CTA */}
-      <Link href="/request-demo"
+      <Link href="/join-waitlist"
         className={`mt-6 block rounded-xl py-3 text-center text-sm font-semibold transition-all ${
           plan.popular ? "flow-bg hover:shadow-[0_0_28px_rgba(124,130,255,0.5)]"
           : plan.custom ? "flow-gold hover:shadow-[0_0_28px_rgba(240,169,59,0.5)]"
@@ -678,9 +678,9 @@ export default function PricingPage() {
             transition={reduced ? { duration: 0 } : { duration: 0.5, delay: 0.33, ease: E_OUT }}
             className="mt-8 flex flex-wrap justify-center gap-4">
             {[
-              { label: "14-day free trial",      color: "#3ddc91", bg: "rgba(61,220,145,0.1)",   border: "rgba(61,220,145,0.25)"   },
-              { label: "No credit card required", color: "#7c82ff", bg: "rgba(124,130,255,0.1)", border: "rgba(124,130,255,0.22)"  },
-              { label: "Cancel anytime",          color: "#27d3ee", bg: "rgba(39,211,238,0.1)",  border: "rgba(39,211,238,0.22)"   },
+              { label: "Early access",            color: "#3ddc91", bg: "rgba(61,220,145,0.1)",   border: "rgba(61,220,145,0.25)"   },
+              { label: "Founding pricing",        color: "#7c82ff", bg: "rgba(124,130,255,0.1)", border: "rgba(124,130,255,0.22)"  },
+              { label: "Priority onboarding",     color: "#27d3ee", bg: "rgba(39,211,238,0.1)",  border: "rgba(39,211,238,0.22)"   },
             ].map((b) => (
               <span key={b.label} className="rounded-full px-4 py-2 font-mono text-xs font-semibold"
                 style={{ background: b.bg, color: b.color, border: `1px solid ${b.border}`, backdropFilter: "blur(10px)" }}>
@@ -744,9 +744,9 @@ export default function PricingPage() {
       </section>
 
       <FinalCta
-        title="See it running on your own traffic"
-        line="Spin up a workspace, point a test offer at it, and watch the rules and AI work in real time."
-        primary={{ to: "/request-demo", label: "Start 14-day trial" }}
+        title="Be first when Afilize launches"
+        line="Join the waitlist now and get priority access when onboarding opens."
+        primary={{ to: "/join-waitlist", label: "Join the waitlist" }}
         secondary={{ to: "/solutions", label: "What you will achieve" }}
       />
     </>
