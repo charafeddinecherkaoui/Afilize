@@ -8,7 +8,7 @@ export default function Footer() {
         <p>Afilize is a product of Optivads.</p>
         <p>
           <Link href="/terms" className="transition-colors hover:text-text-muted">
-            Terms of Service
+            Terms of Use
           </Link>
           {" — "}
           <Link href="/privacy" className="transition-colors hover:text-text-muted">
